@@ -12,9 +12,9 @@ class Content(models.Model):
     commentary = models.TextField()
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="content_owner",
     )
 
