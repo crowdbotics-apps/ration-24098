@@ -8,19 +8,32 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('content', '0001_initial'),
+        ("content", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Playlist',
+            name="Playlist",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_updated', models.DateTimeField(auto_now=True, null=True)),
-                ('time_created', models.DateTimeField(auto_now_add=True, null=True)),
-                ('slug', models.SlugField(blank=True, null=True)),
-                ('title', models.CharField(blank=True, max_length=256, null=True)),
-                ('content_cards', models.ManyToManyField(related_name='playlist_content_cards', to='content.Content')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("last_updated", models.DateTimeField(auto_now=True, null=True)),
+                ("time_created", models.DateTimeField(auto_now_add=True, null=True)),
+                ("slug", models.SlugField(blank=True, null=True)),
+                ("title", models.CharField(blank=True, max_length=256, null=True)),
+                (
+                    "content_cards",
+                    models.ManyToManyField(
+                        related_name="playlist_content_cards", to="content.Content"
+                    ),
+                ),
             ],
         ),
     ]

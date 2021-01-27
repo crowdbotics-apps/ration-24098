@@ -23,6 +23,32 @@ class User(AbstractUser):
         blank=True,
         max_length=255,
     )
+    bio = models.TextField(
+        null=True,
+        blank=True,
+    )
+    avatar_url = models.URLField(
+        null=True,
+        blank=True,
+    )
+    background_url = models.URLField(
+        null=True,
+        blank=True,
+    )
+    sanctioned = models.BooleanField(
+        null=True,
+        blank=True,
+    )
+    featured_playlist = models.ForeignKey(
+        "playlist.Playlist",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="user_featured_playlist",
+    )
+
+    def get_absolute_url(self):
+        return reverse("users:detail", kwargs={"username": self.username})
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})

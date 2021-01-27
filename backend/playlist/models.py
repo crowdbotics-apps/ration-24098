@@ -9,24 +9,24 @@ class Playlist(models.Model):
         related_name="playlist_content_cards",
     )
     last_updated = models.DateTimeField(
-        auto_now=True,
         null=True,
         blank=True,
+        auto_now=True,
     )
     time_created = models.DateTimeField(
-        auto_now_add=True,
         null=True,
         blank=True,
+        auto_now_add=True,
     )
     slug = models.SlugField(
-        max_length=50,
         null=True,
         blank=True,
+        max_length=50,
     )
     title = models.CharField(
-        max_length=256,
         null=True,
         blank=True,
+        max_length=256,
     )
 
 
