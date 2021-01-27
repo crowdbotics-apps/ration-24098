@@ -41,11 +41,14 @@ class User(AbstractUser):
     )
     featured_playlist = models.ForeignKey(
         "playlist.Playlist",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="user_featured_playlist",
     )
+
+    def get_absolute_url(self):
+        return reverse("users:detail", kwargs={"username": self.username})
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})

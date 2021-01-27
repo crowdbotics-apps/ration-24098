@@ -7,34 +7,40 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('playlist', '0001_initial'),
-        ('users', '0002_auto_20210127_0522'),
+        ("playlist", "0001_initial"),
+        ("users", "0002_auto_20210127_0522"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='avatar_url',
+            model_name="user",
+            name="avatar_url",
             field=models.URLField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='background_url',
+            model_name="user",
+            name="background_url",
             field=models.URLField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='bio',
+            model_name="user",
+            name="bio",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='featured_playlist',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_featured_playlist', to='playlist.Playlist'),
+            model_name="user",
+            name="featured_playlist",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="user_featured_playlist",
+                to="playlist.Playlist",
+            ),
         ),
         migrations.AddField(
-            model_name='user',
-            name='sanctioned',
+            model_name="user",
+            name="sanctioned",
             field=models.BooleanField(blank=True, null=True),
         ),
     ]
